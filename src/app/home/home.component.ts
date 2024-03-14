@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, type OnInit } from "@angular/core";
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { MovieComponent } from "../movie/movie.component";
+import { MoviesService } from "../_services/movies.service";
 
 @Component({
   selector: "app-home",
@@ -13,5 +14,8 @@ import { MovieComponent } from "../movie/movie.component";
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class HomeComponent implements OnInit {
-  ngOnInit(): void {}
+  constructor(private MoviesService: MoviesService) {}
+  ngOnInit(): void {
+    this.MoviesService.searchMovie("batman").then((res) => console.log(res));
+  }
 }
