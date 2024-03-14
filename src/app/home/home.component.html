@@ -13,13 +13,21 @@
 
   <div class="row">
     <div class="col-md-12">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search" />
-        <button class="btn btn-primary">Search</button>
-        <button class="btn btn-primary">reset</button>
-      </div>
+      <form (ngSubmit)="searchMovie(movieSearch)">
+        <div class="input-group mb-3">
+          <input [(ngModel)]="movieSearch" name="movieSearch" type="text" class="form-control" placeholder="Search" />
+          <button type="submit" class="btn btn-primary">Search</button>
+          <button (click)="reset()" type="button" class="btn btn-primary">reset</button>
+        </div>
+      </form>
     </div>
   </div>
+
+  <ul class="movieList">
+    <li *ngFor="let movie of movieList">
+      <a (click)="getMovie(movie)">{{ movie.Title }}</a>
+    </li>
+  </ul>
 
   <app-movie></app-movie>
 </main>
