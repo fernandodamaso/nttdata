@@ -18,28 +18,46 @@ import { MovieModel } from "../_models/movie.model";
 export class HomeComponent implements OnInit {
   movieSearch = "";
   movieList: MovieModel[] = [];
+  totalResults: number = 0;
   selectedMovie: MovieModel | undefined;
+  page: number = 1;
   constructor(private MoviesService: MoviesService) {}
 
   ngOnInit(): void {}
 
-  searchMovie(search: string) {
-    console.log(search);
-    this.MoviesService.searchMovie(search).then((data) => {
+  searchMovie(search: string, page: number) {
+    this.MoviesService.searchMovie(search, page).then((data) => {
       console.log(data);
       this.movieList = data.Search;
+      this.totalResults = data.totalResults;
+      this.page = page;
     });
   }
 
-  getMovie(movie: MovieModel) {
-    console.log(movie);
-    this.selectedMovie = movie;
-    this.movieList = [];
+  getMovie(id: string) {
+    this.MoviesService.getMovie(id).then((data) => {
+      this.selectedMovie = data;
+      this.movieList = [];
+    });
+  }
+
+  nextPage(): void {
+    this.page++;
+    this.searchMovie(this.movieSearch, this.page);
+  }
+  prevPage(): void {
+    this.page--;
+    this.searchMovie(this.movieSearch, this.page);
   }
 
   reset() {
     this.movieSearch = "";
+    this.page = 0;
     this.movieList = [];
     this.selectedMovie = undefined;
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.totalResults / 10);
   }
 }

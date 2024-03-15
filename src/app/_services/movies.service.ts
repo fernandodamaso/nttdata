@@ -9,7 +9,12 @@ export class MoviesService {
 
   constructor() {}
 
-  searchMovie(search: string) {
-    return fetch(`${this.url}${this.apiKey}&s=${search}`).then((res) => res.json());
+  searchMovie(search: string, page: number) {
+    return fetch(`${this.url}${this.apiKey}&s=${search}&type=movie&page=${page}`).then((res) => res.json());
+  }
+
+
+  getMovie(id: string) {
+    return fetch(`${this.url}${this.apiKey}&i=${id}`).then((res) => res.json());
   }
 }
