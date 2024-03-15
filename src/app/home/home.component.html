@@ -11,6 +11,7 @@
   </div>
 
   <app-movie-list [movieList]="movieList" (movieSelected)="getMovie($event)"></app-movie-list>
+
   <app-pagination
     [page]="page"
     [movieList]="movieList"
