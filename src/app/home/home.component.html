@@ -1,18 +1,7 @@
 <app-header></app-header>
 
 <main class="container py-4">
-  <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-md-5">
-      <form (ngSubmit)="newSearchMovie(movieSearch)">
-        <div class="input-group mb-3">
-          <i class="bi bi-search"></i>
-          <input [(ngModel)]="movieSearch" name="movieSearch" type="text" class="form-control" placeholder="Search" />
-          <button *ngIf="movieSearch" (click)="reset()" type="button" class="btn btn-primary reset"><i class="bi bi-x"></i></button>
-          <!-- <button type="submit" class="btn btn-primary">Search</button> -->
-        </div>
-      </form>
-    </div>
-  </div>
+  <app-search-movie (movieSearchOutput)="searchMovie($event, 1)" (resetOutput)="reset($event)"></app-search-movie>
 
   <div class="row title text-center" *ngIf="movieList.length == 0 && !selectedMovie">
     <div class="col-md-12">
@@ -32,6 +21,8 @@
       <li class="page-item active"><a class="page-link" [class.disabled]="page === totalPages" (click)="page < totalPages && nextPage()">next</a></li>
     </ul>
   </nav>
+
+  <app-pagination></app-pagination>
 
   <app-movie *ngIf="selectedMovie" [movie]="selectedMovie"></app-movie>
 </main>

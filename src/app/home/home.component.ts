@@ -7,21 +7,32 @@ import { MoviesService } from "../_services/movies.service";
 import { FormsModule } from "@angular/forms";
 import { MovieModel } from "../_models/movie.model";
 import { MovieListComponent } from "../movie-list/movie-list.component";
+import { SearchMovieComponent } from "../search-movie/search-movie.component";
+import { PaginationComponent } from "../pagination/pagination.component";
 
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, MovieComponent, FormsModule, MovieListComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    FooterComponent,
+    MovieComponent,
+    FormsModule,
+    MovieListComponent,
+    SearchMovieComponent,
+    PaginationComponent,
+  ],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.scss",
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class HomeComponent implements OnInit {
-  movieSearch = "";
   movieList: MovieModel[] = [];
   totalResults: number = 0;
   selectedMovie: MovieModel | undefined;
   page: number = 1;
+  searchMade: string = "";
   constructor(private MoviesService: MoviesService) {}
 
   ngOnInit(): void {}
@@ -32,6 +43,7 @@ export class HomeComponent implements OnInit {
       this.movieList = data.Search;
       this.totalResults = data.totalResults;
       this.page = page;
+      this.searchMade = search;
     });
   }
 
@@ -49,15 +61,16 @@ export class HomeComponent implements OnInit {
 
   nextPage(): void {
     this.page++;
-    this.searchMovie(this.movieSearch, this.page);
+    this.searchMovie(this.searchMade, this.page);
   }
   prevPage(): void {
     this.page--;
-    this.searchMovie(this.movieSearch, this.page);
+    this.searchMovie(this.searchMade, this.page);
   }
 
-  reset() {
-    this.movieSearch = "";
+  reset(event: any) {
+    console.log(event);
+    this.searchMade = "";
     this.page = 0;
     this.movieList = [];
     this.selectedMovie = undefined;
