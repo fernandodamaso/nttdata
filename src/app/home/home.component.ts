@@ -1,7 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, type OnInit } from "@angular/core";
 import { HeaderComponent } from "../header/header.component";
-import { FooterComponent } from "../footer/footer.component";
 import { MovieComponent } from "../movie/movie.component";
 import { MoviesService } from "../_services/movies.service";
 import { FormsModule } from "@angular/forms";
