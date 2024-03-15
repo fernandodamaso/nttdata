@@ -41,6 +41,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  newSearchMovie(search: string) {
+    this.page = 1;
+    this.searchMovie(search, this.page);
+  }
+
   nextPage(): void {
     this.page++;
     this.searchMovie(this.movieSearch, this.page);
