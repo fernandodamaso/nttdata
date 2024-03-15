@@ -14,20 +14,28 @@
     </div>
   </div>
 
-  <div class="row title text-center" *ngIf="movieList.length == 0">
+  <div class="row title text-center" *ngIf="movieList.length == 0 && !selectedMovie">
     <div class="col-md-12">
       <h1>Your Quick Movie Finder</h1>
       <p>Unleash the Power of Search with This Easy-to-Use Movie Database Explorer</p>
     </div>
   </div>
 
-  <ul class="movieList" *ngIf="movieList.length > 0">
-    <li *ngFor="let movie of movieList">
-      <a (click)="getMovie(movie.imdbID)">{{ movie.Title }}</a>
+  <ul class="movieList d-flex flex-wrap justify-content-center" *ngIf="movieList.length > 0">
+    <li class="custom-col" *ngFor="let movie of movieList">
+      <a (click)="getMovie(movie.imdbID)">
+        <span class="hover">
+          <span class="text">
+            <span class="movieTitle">{{ movie.Title }}</span>
+            <span class="movieYar">{{ movie.Year }}</span>
+          </span>
+        </span>
+        <img *ngIf="movie.Poster" src="{{ movie.Poster }}" alt="{{ movie.Title }}" />
+      </a>
     </li>
   </ul>
 
-  <nav aria-label="Page navigation" *ngIf="totalResults > 10 && movieList.length > 0">
+  <nav aria-label="Page navigation" class="navigation" *ngIf="totalResults > 10 && movieList.length > 0">
     <ul class="pagination justify-content-center">
       <li class="page-item active"><a class="page-link" [class.disabled]="page === 1" (click)="page > 1 && prevPage()">previous</a></li>
       <li class="page-item disabled">
@@ -39,5 +47,3 @@
 
   <app-movie *ngIf="selectedMovie" [movie]="selectedMovie"></app-movie>
 </main>
-
-<app-footer></app-footer>

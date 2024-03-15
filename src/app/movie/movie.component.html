@@ -1,5 +1,8 @@
-<div class="row">
-  <div class="col-md-6">
+<div class="row mx-auto">
+  <div class="col-md-5 poster">
+    <img src="{{ movie.Poster }}" alt="Movie Poster" class="img-fluid" />
+  </div>
+  <div class="col-md-7 textWrap">
     <h2>
       {{ movie.Title }}
       <span class="year">
@@ -15,20 +18,19 @@
     </p>
     <p>
       <b>Rating:</b>
-      <span *ngFor="let star of stars">
-        <i
-          class="bi"
-          [ngClass]="{
-            'bi-star-fill': star === 'full',
-            'bi-star-half': star === 'half',
-            'bi-star': star === 'empty'
-          }"></i>
+      <span class="stars">
+        <span *ngFor="let star of stars">
+          <i
+            class="bi"
+            [ngClass]="{
+              'bi-star-fill': star === 'full',
+              'bi-star-half': star === 'half',
+              'bi-star': star === 'empty'
+            }"></i>
+        </span>
       </span>
     </p>
 
     <button type="button" class="btn btn-outline-primary">Add to Favorites</button>
-  </div>
-  <div class="col-md-6">
-    <img src="{{ movie.Poster }}" alt="Movie Poster" class="img-fluid" />
   </div>
 </div>

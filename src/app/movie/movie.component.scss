@@ -5,3 +5,62 @@
   font-size: 1rem; /* Adjust font size as needed */
   color: gold; /* Adjust color as needed */
 }
+
+.row {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  max-width: 1060px;
+  .poster {
+    .img-fluid {
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+    }
+  }
+
+  .textWrap {
+    padding-left: 30px;
+    h2 {
+      color: #eaedf0;
+      font-family: Poppins;
+      font-size: 39px;
+      font-weight: 700;
+      .year {
+        color: #90969d;
+        font-family: Poppins;
+        font-size: 22px;
+        font-weight: 400;
+        padding-left: 5px;
+      }
+    }
+
+    p {
+      color: #fff;
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .btn {
+      border-radius: 10px;
+      background: #2d4b6e;
+      flex-shrink: 0;
+      color: #eaedf0;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 700;
+      border: 0;
+      padding: 10px 20px;
+      &:hover {
+        background: #1e2f42;
+      
+      }
+    }
+  }
+}
+
+.stars {
+  margin-left: 10px;
+  display: inline-block;
+}
