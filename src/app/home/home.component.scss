@@ -2,38 +2,6 @@
   display: block;
 }
 
-form {
-  .input-group {
-    input {
-      border: 1px solid #243955;
-      background: rgba(40, 65, 96, 0.19);
-      border-radius: 12px !important;
-      height: 45px;
-      color: #e2e8ee;
-      font-family: Poppins;
-      font-size: 15px;
-      font-weight: 400;
-      z-index: 1;
-      &::placeholder {
-        color: #afb8c2;
-        font-size: 15px;
-        font-weight: 275;
-      }
-    }
-    button.reset {
-      background: #1b2d4b00;
-      border: 0;
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-size: 23px;
-      z-index: 2;
-    }
-    .bi-search {
-    }
-  }
-}
-
 .title {
   margin-top: 30px;
   h1 {
@@ -41,11 +9,17 @@ form {
     font-family: Poppins;
     font-size: 35px;
     font-weight: 300;
+    @media (max-width: 768px) {
+      font-size: 29px;
+    }
   }
   p {
     color: #fff;
     font-family: Poppins;
     font-size: 19px;
     font-weight: 300;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 }

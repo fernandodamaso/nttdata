@@ -59,12 +59,10 @@ export class HomeComponent implements OnInit {
   }
 
   nextPage(): void {
-    console.log(1)
     this.page++;
     this.searchMovie(this.searchMade, this.page);
   }
   prevPage(): void {
-    console.log(1)
     this.page--;
     this.searchMovie(this.searchMade, this.page);
   }
