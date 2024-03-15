@@ -4,7 +4,7 @@ System built with the purpose of serving as a technical test in Angular, where I
 
 ## Development server
 
-Run `ng serve` for a dev server after a `npm install`. Navigate to `http://localhost:4200/`. 
+Run `ng serve` after a `npm install`. Navigate to `http://localhost:4200/`. 
 
 ## License
 
