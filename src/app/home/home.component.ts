@@ -6,11 +6,12 @@ import { MovieComponent } from "../movie/movie.component";
 import { MoviesService } from "../_services/movies.service";
 import { FormsModule } from "@angular/forms";
 import { MovieModel } from "../_models/movie.model";
+import { MovieListComponent } from "../movie-list/movie-list.component";
 
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, MovieComponent, FormsModule],
+  imports: [CommonModule, HeaderComponent, FooterComponent, MovieComponent, FormsModule, MovieListComponent],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.scss",
   changeDetection: ChangeDetectionStrategy.Default,

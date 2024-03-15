@@ -1,0 +1,13 @@
+<ul class="movieList d-flex flex-wrap justify-content-center" *ngIf="movieList.length > 0">
+  <li class="custom-col" *ngFor="let movie of movieList">
+    <a (click)="getMovie(movie.imdbID)">
+      <span class="hover">
+        <span class="text">
+          <span class="movieTitle">{{ movie.Title }}</span>
+          <span class="movieYar">{{ movie.Year }}</span>
+        </span>
+      </span>
+      <img *ngIf="movie.Poster" src="{{ movie.Poster }}" alt="{{ movie.Title }}" />
+    </a>
+  </li>
+</ul>
