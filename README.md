@@ -1,6 +1,6 @@
 # Nttdata
 
-System designed with the purpose of a Technical test developed in angular, where i list movies from http://omdbapi.com. 
+System built with the purpose of serving as a technical test in Angular, where I list movies using the http://omdbapi.com/ API.
 
 ## Development server
 
