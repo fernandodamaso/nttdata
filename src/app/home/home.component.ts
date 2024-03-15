@@ -13,16 +13,7 @@ import { PaginationComponent } from "../pagination/pagination.component";
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [
-    CommonModule,
-    HeaderComponent,
-    FooterComponent,
-    MovieComponent,
-    FormsModule,
-    MovieListComponent,
-    SearchMovieComponent,
-    PaginationComponent,
-  ],
+  imports: [CommonModule, HeaderComponent, MovieComponent, FormsModule, MovieListComponent, SearchMovieComponent, PaginationComponent],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.scss",
   changeDetection: ChangeDetectionStrategy.Default,
