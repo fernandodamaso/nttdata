@@ -12,7 +12,7 @@ This project is licensed under the Creative Commons Attribution-NonCommercial (C
 
 ## Contact
 
-Email: fernando.yarrum@gmail.com
-linkedin: https://www.linkedin.com/in/fernandodamaso/
-instagram: https://www.instagram.com/fernandodamaso/
+Email: fernando.yarrum@gmail.com <br>
+Linkedin: https://www.linkedin.com/in/fernandodamaso/ <br>
+Instagram: https://www.instagram.com/fernandodamaso/ <br>
 Whatsapp: (+55) 27 995066670
