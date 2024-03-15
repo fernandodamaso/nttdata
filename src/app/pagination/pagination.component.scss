@@ -1,0 +1,40 @@
+.navigation {
+  ul {
+    margin-top: 30px;
+    li {
+      a {
+        border-radius: 10px;
+        background: #2d4b6e;
+        color: #eaedf0;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 8px 30px;
+        border: 0;
+        cursor: pointer;
+        transition: all 0.35s ease-in-out;
+        &.disabled {
+          opacity: 0.5;
+        }
+
+        &:hover {
+          background-color: #3f5e82;
+        }
+      }
+      &.disabled {
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        p {
+          color: #eaedf0;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 700;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
 
   searchMovie(search: string, page: number) {
     this.MoviesService.searchMovie(search, page).then((data) => {
-      console.log(data);
       this.movieList = data.Search;
       this.totalResults = data.totalResults;
       this.page = page;
@@ -60,23 +59,20 @@ export class HomeComponent implements OnInit {
   }
 
   nextPage(): void {
+    console.log(1)
     this.page++;
     this.searchMovie(this.searchMade, this.page);
   }
   prevPage(): void {
+    console.log(1)
     this.page--;
     this.searchMovie(this.searchMade, this.page);
   }
 
   reset(event: any) {
-    console.log(event);
     this.searchMade = "";
     this.page = 0;
     this.movieList = [];
     this.selectedMovie = undefined;
-  }
-
-  get totalPages(): number {
-    return Math.ceil(this.totalResults / 10);
   }
 }

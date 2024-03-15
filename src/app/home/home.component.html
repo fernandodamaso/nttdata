@@ -11,18 +11,12 @@
   </div>
 
   <app-movie-list [movieList]="movieList" (movieSelected)="getMovie($event)"></app-movie-list>
-
-  <nav aria-label="Page navigation" class="navigation" *ngIf="totalResults > 10 && movieList.length > 0">
-    <ul class="pagination justify-content-center">
-      <li class="page-item active"><a class="page-link" [class.disabled]="page === 1" (click)="page > 1 && prevPage()">previous</a></li>
-      <li class="page-item disabled">
-        <p>{{ page }} of {{ totalPages }} pages</p>
-      </li>
-      <li class="page-item active"><a class="page-link" [class.disabled]="page === totalPages" (click)="page < totalPages && nextPage()">next</a></li>
-    </ul>
-  </nav>
-
-  <app-pagination></app-pagination>
+  <app-pagination
+    [page]="page"
+    [movieList]="movieList"
+    [totalResults]="totalResults"
+    (prevOutput)="prevPage()"
+    (nextOutput)="nextPage()"></app-pagination>
 
   <app-movie *ngIf="selectedMovie" [movie]="selectedMovie"></app-movie>
 </main>
