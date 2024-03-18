@@ -12,7 +12,17 @@ import { FormsModule } from "@angular/forms";
 export class SearchMovieComponent {
   @Output() movieSearchOutput = new EventEmitter<string>();
   @Output() resetOutput = new EventEmitter<any>();
+
+  placeholderText = "Type your Search and press enter";
   movieSearch = "";
+
+  onResize() {
+    this.placeholderText = window.innerWidth <= 1024 ? "Type your Search" : "Type your Search and press enter";
+  }
+
+  ngOnInit() {
+    this.onResize(); // Call onResize method on component initialization to set the initial value of placeholderText
+  }
 
   newSearchMovie() {
     this.movieSearchOutput.emit(this.movieSearch);
